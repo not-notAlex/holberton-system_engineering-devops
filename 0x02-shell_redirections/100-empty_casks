@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -empty -execdir echo {} ';' | tr -d "." | tr -d "/"
+find . -empty -execdir echo {} ';' | tr -d "." | tr -d "/"
