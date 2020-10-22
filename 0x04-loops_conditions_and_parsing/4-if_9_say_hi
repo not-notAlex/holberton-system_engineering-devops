@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Displays Holberton School but Hi after 9 lines
+x=0
+while [ $x -lt 10 ]
+do
+    echo "Holberton School"
+    ((x++))
+    if [ $x -eq 9 ]
+    then
+	echo "Hi"
+    fi
+done
