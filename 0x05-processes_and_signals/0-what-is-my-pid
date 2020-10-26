@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Displays its own PID
+ps | head -n 2 | tail -n 1 | cut -b 2-5
