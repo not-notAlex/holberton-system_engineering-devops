@@ -4,7 +4,8 @@ message()
 {
     echo "I am invincible!!!"
 }
-trap "msg" SIGTERM
+trap "message" SIGTERM
+
 while true
 do
     echo "To infinity and beyond"
