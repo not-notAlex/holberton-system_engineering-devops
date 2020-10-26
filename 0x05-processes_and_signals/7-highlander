@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Displays a line infinitely and is immune to SIGTERM
+message()
+{
+    echo "I am invincible!!!"
+}
+trap "msg" SIGTERM
 while true
 do
     echo "To infinity and beyond"
     sleep 2
 done
-
-msg()
-{
-    echo "I am invincible!!!"
-}
