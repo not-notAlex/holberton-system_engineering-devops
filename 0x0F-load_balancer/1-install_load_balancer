@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # install and configure haproxy
 sudo apt-get update
-sudo apt-get -y install nginx
 sudo apt install -y haproxy
 sudo sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
-sudo sed -i "\$a \\\nlisten appname 0.0.0.0:80\n\tmode http\n\tbalance roundrobin\n\toption httpclose\n\toption forwardfor\n\tserver 1763-web-01 104.196.13.235 check\n\tserver 1763-web-02 35.231.121.223 check\n" /etc/haproxy/haproxy.cfg
+echo "\nfrontend hapnode\n\tbind *:80\n\tmode http\n\tdefault_backend backnodes\n\nbackend backnodes\n\tmode http\n\tbalance roundrobin\n\toption httpclose\n\toption forwardfor\n\tserver 1763-web-01 104.196.13.235:80 check\n\tserver 1763-web-01 35.231.121.223:80 check\n" | sudo tee -a /etc/haproxy/haproxy.cfg
 sudo service haproxy start
