@@ -23,7 +23,7 @@ if __name__ == "__main__":
         for j in TASK_STATUS_TITLE:
             if j[0] == i[0]:
                 tasks.append({"task": j[2], "completed": j[1],
-                          "username": i[1]})
+                              "username": i[1]})
         data[str(i[0])] = tasks
     filename = "todo_all_employees.json"
     with open(filename, "w") as f:

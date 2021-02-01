@@ -20,7 +20,7 @@ if __name__ == "__main__":
     filename = "{}.csv".format(argv[1])
     with open(filename, "w") as csvfile:
         f = ["USER_ID", "USERNAME",
-                      "TASK_COMPLETED_STATUS", "TASK_TITLE"]
+             "TASK_COMPLETED_STATUS", "TASK_TITLE"]
         writer = csv.DictWriter(csvfile, fieldnames=f,
                                 quoting=csv.QUOTE_ALL)
         for i in TASK_STATUS_TITLE:
