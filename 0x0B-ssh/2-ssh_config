@@ -1,4 +1,0 @@
-# config so that server does not need password
-Host 104.196.13.235
-     PasswordAuthentication no
-     IdentityFile ~/.ssh/holberton
