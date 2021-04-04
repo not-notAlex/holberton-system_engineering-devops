@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# uses ssh to connect into server
+ssh -i ~/.ssh/holberton ubuntu@35.196.133.63
