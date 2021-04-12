@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# configure web servers with header
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
+sudo sed -i "43i \\\tlocation /redirect_me {\n\t\t return 301 https://reddit.com;\n\t}\n" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
+sudo sed -i "46i \\\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}" /etc/nginx/sites-available/default
+sudo sed -i "40i \\\tadd_header X-Served-By $(hostname);" /etc/nginx/sites-available/default
+sudo service nginx start
